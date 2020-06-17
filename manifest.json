@@ -1,0 +1,318 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "ypglmasterdetailportal",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "data/workData.json",
+				"type": "JSON",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"workDataSource": {
+				"uri": "data/workData.json",
+				"type": "JSON"
+			},
+			"init_kalender": {
+				"uri": "data/kalender.json",
+				"type": "JSON"
+			},
+				"init_ausstellung": {
+				"uri": "data/ausstellung.json",
+				"type": "JSON"
+			},
+				"init_sprache": {
+				"uri": "data/sprache.json",
+				"type": "JSON"
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.38.3"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ypglmasterdetailportal.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.0"
+				},
+				"sap.m": {
+					"minVersion": "1.38.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ypglmasterdetailportal.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			},
+			"workData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "workDataSource"
+			},
+			"kalender": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "init_kalender"
+			},
+				"ausstellung": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "init_ausstellung"
+			}
+			,
+				"sprache": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "init_sprache"
+			}
+
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ypglmasterdetailportal.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": [
+					"object",
+					"master"
+				]
+			}, {
+				"pattern": "BSCONCEPTS/{objectId}",
+				"name": "object",
+				"target": [
+					"master",
+					"object"
+				]
+			}, 
+			 {
+				"pattern": "BSCONCEPTS/AUSSTELLUNG/{objectId}",
+				"name": "ausstellung",
+				"target": [
+					"master",
+					"ausstellung"
+				]
+			}, 
+			 {
+				"pattern": "BSCONCEPTS/HOME/{objectId}",
+				"name": "home",
+				"target": [
+					"master",
+					"home"
+				]
+			}, 
+			 {
+				"pattern": "BSCONCEPTS/KALENDERLISTE/{objectId}",
+				"name": "kalenderliste",
+				"target": [
+					"master",
+					"kalenderliste"
+				]
+			}, 
+			 {
+				"pattern": "BSCONCEPTS/FENGSHUI/{objectId}",
+				"name": "fengShui",
+				"target": [
+					"master",
+					"fengShui"
+				]
+			}
+			, 
+			 {
+				"pattern": "BSCONCEPTS/FOTOGRAFIE/{objectId}",
+				"name": "fotografie",
+				"target": [
+					"master",
+					"fotografie"
+				]
+			}
+			,
+			{
+				"pattern": "BSCONCEPTS/KONTAKT/{objectId}",
+				"name": "kontakt",
+				"target": [
+					"master",
+					"kontakt"
+				]
+			}
+			,
+				{
+				"pattern": "BSCONCEPTS/LINKS/{objectId}",
+				"name": "links",
+				"target": [
+					"master",
+					"links"
+				]
+			}			,
+				{
+				"pattern": "BSCONCEPTS/PROZESSBEGLEITUNG/{objectId}",
+				"name": "prozessbegleitung",
+				"target": [
+					"master",
+					"prozessbegleitung"
+				]
+			}			,
+				{
+				"pattern": "BSCONCEPTS/PROFIL/{objectId}",
+				"name": "profil",
+				"target": [
+					"master",
+					"profil"
+				]
+			}
+			,
+			 {
+				"pattern": "BSCONCEPTS/AUSSTELLUNG/{objectId}/KATALOG",
+				"name": "katalog",
+				"target": [
+					"master",
+					"katalog"
+				]
+			}
+			,
+			{
+				"pattern": "BSCONCEPTS/KALENDER/{year}",
+				"name": "calendar",
+				"target": [
+					"master",
+					"calendar"
+				]
+			}],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlAggregation": "masterPages"
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 2
+				},
+					"ausstellung": {
+					"viewName": "Ausstellung",
+					"viewId": "ausstellung",
+					"viewLevel": 2
+				},
+					"home": {
+					"viewName": "Home",
+					"viewId": "home",
+					"viewLevel": 2
+				},
+					"kalenderliste": {
+					"viewName": "Kalenderliste",
+					"viewId": "kalenderliste",
+					"viewLevel": 2
+				},
+					"fengShui": {
+					"viewName": "FengShui",
+					"viewId": "fengShui",
+					"viewLevel": 2
+				},
+					"fotografie": {
+					"viewName": "Fotografie",
+					"viewId": "fotografie",
+					"viewLevel": 2
+				},
+				"calendar": {
+					"viewName": "Calendar",
+					"viewId": "calendar",
+					"viewLevel": 3
+				},
+					"kontakt": {
+					"viewName": "Kontakt",
+					"viewId": "kontakt",
+					"viewLevel": 2
+				},
+					"links": {
+					"viewName": "Links",
+					"viewId": "links",
+					"viewLevel": 2
+				},
+					"profil": {
+					"viewName": "Profil",
+					"viewId": "profil",
+					"viewLevel": 2
+				},
+					"prozessbegleitung": {
+					"viewName": "Prozessbegleitung",
+					"viewId": "prozessbegleitung",
+					"viewLevel": 2
+				},
+				"katalog": {
+					"viewName": "Catalog",
+					"viewId": "catalog",
+					"viewLevel": 3
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

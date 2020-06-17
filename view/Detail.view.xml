@@ -1,0 +1,69 @@
+<mvc:View controllerName="ypglmasterdetailportal.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{path: 'Text' , formatter: 'ypglmasterdetailportal.util.Formatter.i19n'}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+ 	<semantic:content> 
+		<!--	<Toolbar title="{Text}" ></Toolbar>-->
+		<!--	<ObjectHeader id="objectHeader" title="{Text}" numberUnit="{LinkType}"></ObjectHeader>-->
+			<!--			<IconTabBar
+				id="iconTabBar"
+				class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+						id="iconTabBarFilter1"
+						icon="sap-icon://hint"
+						tooltip="{i18n>detailIconTabBarInfo}">
+					</IconTabFilter>
+					<IconTabFilter
+						id="iconTabBarFilter2"
+						icon="sap-icon://attachment"
+						tooltip="{i18n>detailIconTabBarAttachments}">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>-->
+<!--			<Panel headerText="" visible="{=${Key}==='HOME'}">  abgeloest durch eigenständige Home-View!
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.home" type="XML"/>
+			</Panel>-->
+<!--			<Panel headerText="" visible="{=${Key}==='PROZESSBEGLEITUNG'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.prozessbegleitung" type="XML"/>
+			</Panel>-->
+<!--			<Panel headerText="" visible="{=${Key}==='FENG_SHUI'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.fengShui" type="XML"/>
+			</Panel>-->
+<!--			<Panel headerText="" visible="{=${Key}==='FOTOGRAFIE'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.fotografie" type="XML"/>
+			</Panel>-->
+<!--				<Panel headerText="" visible="{=${Key}==='KALENDER'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.kalenderliste" type="XML"/>
+			</Panel>-->
+	<!--				<Panel headerText="" visible="{=${Key}==='PROFIL'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.profil" type="XML"/>
+			</Panel>-->
+<!--				<Panel headerText="" visible="{=${Key}==='KONTAKT'}"> eigenw View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.kontakt" type="XML"/>
+			</Panel>-->
+<!--				<Panel headerText="" visible="{=${Key}==='LINKS'}"> eigene View
+				<core:Fragment fragmentName="ypglmasterdetailportal.view.links" type="XML"/>
+			</Panel> -->
+	<!--		<Panel><content>
+				<VBox>
+			<Button >EMail</Button>
+			</VBox>
+			</content>
+			</Panel>-->
+ 	</semantic:content> 
+ 
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="sendMail"/>
+		</semantic:sendEmailAction>
+	<!--	<semantic:customShareMenuContent>
+		<Button onclick="sendMail" >EMail</Button>
+		</semantic:customShareMenuContent>-->
+		<!--<footer>-->
+		<!--	<Tooolbar>
+			<ToolbarSpacer/>
+				<Button onclick="sendMail" >EMail</Button>
+			</Tooolbar>-->
+		<!--</footer>-->
+	</semantic:DetailPage>
+</mvc:View>
