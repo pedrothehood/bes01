@@ -12,7 +12,7 @@ sap.ui.define([
 
 		return BaseController.extend("ypglmasterdetailportal.controller.Master", {
 
-			formatter: formatter,
+			formatter: formatter, 
 
 			/* =========================================================== */
 			/* lifecycle methods                                           */
