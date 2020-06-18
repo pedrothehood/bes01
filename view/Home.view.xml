@@ -6,7 +6,7 @@
 			<Panel>
 		<VBox>
 				<!--<FormattedText id="formattedTextHome"   ></FormattedText> -->
-	 	      <Text class="h3" text="Prozessbegleitung / Coaching"></Text>  
+	 	      <Text class="h3" text="Prozessbegleitung und Coaching"></Text>  
 				<html:div class="home_absatz">
 					<html:table width="95%" border="0">
 						<html:tr>
